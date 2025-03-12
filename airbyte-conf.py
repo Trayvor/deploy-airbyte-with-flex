@@ -7,6 +7,7 @@ GCLOUD_SERVICE_MAIL = os.getenv("GCLOUD_SERVICE_MAIL")
 CLIENT_ID = os.getenv("AIRBYTE_CLIENT_ID")
 CLIENT_SECRET = os.getenv("AIRBYTE_CLIENT_SECRET")
 SERVICE_ACCOUNT_FILE = "service_account_info.json"
+POSTHOG_API_KEY = os.getenv("POSTHOG_API_KEY")
 
 
 def get_token(client_id, client_secret):
@@ -113,7 +114,7 @@ def connect_posthog(workspace_id, workspace_name, token):
     payload = {
         "configuration": {
             "sourceType": "posthog",
-            "api_key": "phx_IyecEa8A9yj0cVi1Hswoy9wV0MUykOwkk4p7UmajRs7oLxO",
+            "api_key": POSTHOG_API_KEY,
             "start_date": "2021-01-01T00:00:00Z"
         },
         "name": workspace_name,
